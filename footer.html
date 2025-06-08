@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        .animated-linea::before {
+    width: 0;
+    animation: progress1 2s ease-out;
+  }
+  
+  @keyframes progress1 {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 70%;
+    }
+  }
+  .animated-lineb::before {
+    width: 0;
+    animation: progress2 2s ease-out;
+  }
+  
+  @keyframes progress2 {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 78%;
+    }
+  }
+  .animated-linec::before {
+    width: 0;
+    animation: progress3 2s ease-out;
+  }
+  
+  @keyframes progress3 {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 73%;
+    }
+  }
+  .animated-lined::before {
+    width: 0;
+    animation: progress4 2s ease-out;
+  }
+  
+  @keyframes progress4 {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 65%;
+    }
+  }
+  .animated-linee::before {
+    width: 0;
+    animation: progress5 2s ease-out;
+  }
+  
+  @keyframes progress5 {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 75%;
+    }
+  }
+  .animated-linef::before {
+    width: 0;
+    animation: progress6 2s ease-out;
+  }
+  
+  @keyframes progress6 {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 70%;
+    }
+  }
+  .sub-title1 a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  footer a {
+    position: relative;
+    display: inline-block;
+    padding: 27px 27px;
+    color: cyan;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 0px;
+    margin-left: 10px;
+    letter-spacing: 4px
+  }
+  
+  footer a:hover {
+    background: cyan;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px cyan,
+                0 0 25px cyan,
+                0 0 50px cyan,
+                0 0 100px cyan;
+  }
+  
+  footer a span {
+    position: absolute;
+    display: block;
+  }
+  
+  footer a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, cyan);
+    animation: btn-anim1 1s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  footer a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, cyan);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  footer a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, cyan);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  footer a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, cyan);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+  .dis{
+      display: flex;
+      justify-content: center;
+  }
+  footer P{
+    padding: 12px;
+  }
+  footer {
+    background: #000;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+  }
+     </style>
+</head>
+<body>
+    <footer class="dis"> 
+        <P>Created By</P> 
+        <a href="http://shaks.rf.gd/" target="_blank">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          
+            Shakil Mia
+          </a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 
