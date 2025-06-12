@@ -492,6 +492,7 @@ section,
   background-color: var(--background-color);
   padding: 60px 0;
   overflow: clip;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 /*--------------------------------------------------------------
@@ -861,14 +862,15 @@ section,
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
   transform: scale(1) translateY(0);
   transform-style: preserve-3d;
 }
 
 .portfolio .isotope-item {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
   transform: scale(1) translateY(0);
   transform-style: preserve-3d;
@@ -904,7 +906,7 @@ section,
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
   filter: brightness(1) contrast(1) saturate(1);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio .portfolio-item:hover img {
@@ -945,7 +947,7 @@ section,
   right: 0;
   bottom: 0;
   z-index: 3;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.95) 0%,
@@ -1221,8 +1223,10 @@ section,
   height: 100%;
   padding: 60px 30px;
   text-align: center;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   border-radius: 5px;
+  transform: translateY(0);
+  will-change: transform, box-shadow;
 }
 
 .services .service-item .icon {
@@ -1232,13 +1236,14 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: ease-in-out 0.3s;
+  transition: all 0.3s ease;
   position: relative;
+  will-change: transform;
 }
 
 .services .service-item .icon i {
   font-size: 36px;
-  transition: 0.5s;
+  transition: all 0.3s ease;
   position: relative;
 }
 
@@ -1246,10 +1251,11 @@ section,
   position: absolute;
   top: 0;
   left: 0;
+  transition: all 0.3s ease;
 }
 
 .services .service-item .icon svg path {
-  transition: 0.5s;
+  transition: all 0.3s ease;
   fill: color-mix(in srgb, var(--default-color), transparent 95%);
 }
 
@@ -1266,7 +1272,8 @@ section,
 }
 
 .services .service-item:hover {
-  box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.15);
 }
 
 .services .service-item.item-cyan i {
@@ -1339,6 +1346,19 @@ section,
 
 .services .service-item.item-pink:hover .icon path {
   fill: #f3268c;
+}
+
+/* Optimize AOS animations for services */
+[data-aos="fade-up"] {
+  transform: translateY(20px);
+  transition-property: transform, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /*--------------------------------------------------------------
@@ -1839,3 +1859,15 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
+
+/* Optimize fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
