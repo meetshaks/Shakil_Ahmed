@@ -158,23 +158,49 @@
         itemSelector: '.isotope-item',
         layoutMode: layout,
         filter: filter,
-        sortBy: sort
+        sortBy: sort,
+        transitionDuration: 0,
+        stagger: 0,
+        initLayout: true,
+        hiddenStyle: {
+          opacity: 0,
+          transform: 'scale(0.8) translateY(20px)'
+        },
+        visibleStyle: {
+          opacity: 1,
+          transform: 'scale(1) translateY(0)'
+        }
       });
     });
 
     isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
       filters.addEventListener('click', function() {
+        // Remove active class from current filter
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+        
+        // Add active class to new filter
         this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+        
+        // Force a reflow to ensure transitions work
+        isotopeItem.offsetHeight;
+        
+        // Apply transitions to all items
+        isotopeItem.querySelectorAll('.isotope-item').forEach(item => {
+          item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         });
+        
+        // Small delay to ensure transitions are applied
+        setTimeout(() => {
+          initIsotope.arrange({
+            filter: this.getAttribute('data-filter')
+          });
+        }, 10);
+        
         if (typeof aosInit === 'function') {
           aosInit();
         }
       }, false);
     });
-
   });
 
   /**
